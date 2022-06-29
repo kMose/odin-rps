@@ -14,33 +14,40 @@ function computerPlay(){
     }
 }
 
-function play(){
+function playGame(){
 
-    let keepAsking = 0;
+    let keepAsking = 1;
     let rounds = 0;
-    let input = prompt("Rock, Paper, or Scissors?");
-    playerSelection = input.toLowerCase();
-
-    if (playerSelection == 'rock' || playerSelection == "paper" || playerSelection == "scissors")
-        console.log(`you chose ${playerSelection}!`);
-    else
-        keepGoing = 1;
-
+    let input = "";
+    let playerScore = 0;
+    
+    // Prompts user for choice, converts input to lowercase. Will continue to ask if answer doesn't work.
     while (keepAsking){
         input = prompt("Rock, Paper, or Scissors?");
         playerSelection = input.toLowerCase();
         if (playerSelection == 'rock' || playerSelection == "paper" || playerSelection == "scissors")
+        {
             keepAsking = 0;
+            console.log(`you chose ${playerSelection}.`);
+        } else {
+            alert("Please choose Rock, Paper, or Scissors!");
+        }
     }
 
-    input = prompt("How many rounds would you like to play? (1-15)");
-    rounds = parseInt(input, 10);
-    console.log(rounds);
-
-    
-
-
-
+    // keepAsking set back to true 
+    // Prompts user for number of rounds and then converts the input to an integer.
+    keepAsking = 1;
+    while(keepAsking){
+        input = prompt("How many rounds? (1-15)")
+        rounds = parseInt(input, 10);
+        if (isNaN(rounds) || rounds < 1 || rounds > 15 ){
+            keepAsking = 1;
+            alert("Read the rules, you goober.")
+        } else {
+            console.log(`you chose ${rounds} rounds!`);
+            keepAsking = 0;
+        }
+    }
 }
 
-play();
+playGame();
