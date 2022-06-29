@@ -60,12 +60,18 @@ function playGame(){
     }
     
     // Figures out the winner.
-       if (playerScore  > (rounds - ties) - playerScore)
+       if (playerScore  > (rounds - ties) - playerScore){
             console.log("You WIN. YOU BEAT COMPUTER. HOW IS THIS EVEN POSSIBLE?");
-        else if (playerScore == (rounds - ties) - playerScore)
+            alert("You WIN. YOU BEAT COMPUTER. HOW IS THIS EVEN POSSIBLE?");
+        }
+        else if (playerScore == (rounds - ties) - playerScore){
             console.log("You TIE! YOU ARE ALMOST AS GOOD AS COMPUTER!");
-        else
+            alert("You TIE! YOU ARE ALMOST AS GOOD AS COMPUTER!");
+        }
+        else{
             console.log("YOU LOSE! GOOD DAY SIR.");
+            alert("YOU LOSE! GOOD DAY SIR.");
+        }
 }
 
 
