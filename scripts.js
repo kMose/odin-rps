@@ -26,7 +26,7 @@ function playGame(){
 
     // Prompts user for number of rounds and then converts the input to an integer.
     while(inputDefense){
-        input = prompt("How many rounds? 1-15")
+        input = prompt("How many rounds? (1-15)")
         rounds = parseInt(input, 10);
         if (isNaN(rounds) || rounds < 1 || rounds > 15 ){
             inputDefense = true;
