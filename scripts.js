@@ -113,7 +113,7 @@ function animateHands(){
     setTimeout(()=>{
         computerHand.classList.remove("wiggle");
         playerHand.classList.remove("wiggle");
-    }, 500)
+    }, 400)
 }
 
 
