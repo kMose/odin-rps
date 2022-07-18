@@ -20,8 +20,6 @@ function computerPlay(){
 }
 
 function determineWinner(){
-    
-
     scorekeeper.innerText = `Player ${playerScore} | Computer = ${computerScore} `;
     
     // Figures out the winner.
@@ -45,6 +43,7 @@ function playRound(userInput, computerInput){
 
     if (userInput == "rock"){
         playerHand.src = "https://res.cloudinary.com/itsellej/image/upload/v1533400140/rock-paper-scissors/rock.png"
+        animateHands();
         if (computerInput == "paper"){computerInput
             gameOutput.innerText = `You LOSE! ${computerInput.toUpperCase()} beats ${userInput.toUpperCase()}! `;
             outcomeText.innerText = "YOU LOSE!"
@@ -62,6 +61,7 @@ function playRound(userInput, computerInput){
     }
 
     if (userInput == "paper"){
+        animateHands()
         playerHand.src = "https://res.cloudinary.com/itsellej/image/upload/v1533400140/rock-paper-scissors/paper.png"
         if (computerInput == "scissors"){
             gameOutput.innerText = `You LOSE! ${computerInput.toUpperCase()} beats ${userInput.toUpperCase()}! `;
@@ -81,6 +81,7 @@ function playRound(userInput, computerInput){
     }
 
     if (userInput == "scissors"){
+        animateHands()
         playerHand.src = "https://res.cloudinary.com/itsellej/image/upload/v1533400140/rock-paper-scissors/scissors.png"
         if (computerInput == "rock"){
             gameOutput.innerText = `You LOSE! ${computerInput.toUpperCase()} beats ${userInput.toUpperCase()}! `;
@@ -103,11 +104,18 @@ function playRound(userInput, computerInput){
         outcomeText.innerText = "TIE!"
         return 0;
     }
-
-    
-
-
 }
+
+function animateHands(){
+    computerHand.classList.add("wiggle");
+    playerHand.classList.add("wiggle");
+
+    setTimeout(()=>{
+        computerHand.classList.remove("wiggle");
+        playerHand.classList.remove("wiggle");
+    }, 500)
+}
+
 
 let computerHand = document.querySelector(".computer-hand")
 let playerHand = document.querySelector(".player-hand")

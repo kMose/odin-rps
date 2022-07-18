@@ -1,6 +1,7 @@
 make text size bigger on determineWinner()
 make outcomeText bigger and bolder
 
+add a class for animation then remove it after 1 second.
 
 
 
