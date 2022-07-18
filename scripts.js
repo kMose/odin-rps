@@ -8,10 +8,13 @@ function computerPlay(){
     
     switch (result){
         case 1:
+            computerHand.src = "https://res.cloudinary.com/itsellej/image/upload/v1533400140/rock-paper-scissors/rock.png"
             return "rock";
         case 2:
+            computerHand.src = "https://res.cloudinary.com/itsellej/image/upload/v1533400140/rock-paper-scissors/paper.png"
             return "paper";
         case 3:
+            computerHand.src = "https://res.cloudinary.com/itsellej/image/upload/v1533400140/rock-paper-scissors/scissors.png"
             return "scissors";
     }
 }
@@ -41,6 +44,7 @@ function determineWinner(){
 function playRound(userInput, computerInput){
 
     if (userInput == "rock"){
+        playerHand.src = "https://res.cloudinary.com/itsellej/image/upload/v1533400140/rock-paper-scissors/rock.png"
         if (computerInput == "paper"){computerInput
             gameOutput.innerText = `You LOSE! ${computerInput.toUpperCase()} beats ${userInput.toUpperCase()}! `;
             outcomeText.innerText = "YOU LOSE!"
@@ -58,6 +62,7 @@ function playRound(userInput, computerInput){
     }
 
     if (userInput == "paper"){
+        playerHand.src = "https://res.cloudinary.com/itsellej/image/upload/v1533400140/rock-paper-scissors/paper.png"
         if (computerInput == "scissors"){
             gameOutput.innerText = `You LOSE! ${computerInput.toUpperCase()} beats ${userInput.toUpperCase()}! `;
             outcomeText.innerText = "YOU LOSE!"
@@ -76,6 +81,7 @@ function playRound(userInput, computerInput){
     }
 
     if (userInput == "scissors"){
+        playerHand.src = "https://res.cloudinary.com/itsellej/image/upload/v1533400140/rock-paper-scissors/scissors.png"
         if (computerInput == "rock"){
             gameOutput.innerText = `You LOSE! ${computerInput.toUpperCase()} beats ${userInput.toUpperCase()}! `;
             outcomeText.innerText = "YOU LOSE!"
@@ -103,6 +109,8 @@ function playRound(userInput, computerInput){
 
 }
 
+let computerHand = document.querySelector(".computer-hand")
+let playerHand = document.querySelector(".player-hand")
 let outcomeText = document.querySelector(".outcome-text");
 let rockButton = document.querySelector(".rock");
 let paperButton = document.querySelector(".paper");
