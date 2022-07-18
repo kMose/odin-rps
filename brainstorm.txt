@@ -1,8 +1,4 @@
-Three Buttons - Rock Paper Scissors.
 
-Each button calls playround and sends the buttons playerSelection
 
-Add a div for displaying results of the game
 
-Display running score. Winner is announced after 5 points.
-Remove auto 5 game logic.
+
