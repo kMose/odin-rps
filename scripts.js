@@ -16,48 +16,7 @@ function computerPlay(){
     }
 }
 
-function playGame(){
-
-    let inputDefense = true;
-    let rounds = 0;
-    let input = "";
-    let playerScore = 0;
-    let ties = 0;
-
-    // Prompts user for number of rounds and then converts the input to an integer.
-    while(inputDefense){
-        input = prompt("How many rounds? (1-15)")
-        rounds = parseInt(input, 10);
-        if (isNaN(rounds) || rounds < 1 || rounds > 15 ){
-            inputDefense = true;
-            alert("Read the prompt, you goober.")
-        } else {
-            console.log(`you chose ${rounds} rounds!`);
-            inputDefense = false;
-        }
-    }
-
-    inputDefense = true;
-    for (let i = 0; i < rounds; i++)
-    {
-    // Prompts user for choice, converts input to lowercase. Will continue to ask if answer doesn't work.
-    while (inputDefense){
-        input = prompt("Rock, Paper, or Scissors?");
-        playerSelection = input.toLowerCase();
-        if (playerSelection == 'rock' || playerSelection == "paper" || playerSelection == "scissors")
-        {
-            inputDefense = false;
-            console.log(`You chose ${playerSelection.toUpperCase()}.`);
-        } else {
-            alert("Please choose Rock, Paper, or Scissors!");
-        }
-    }
-        result = playRound(playerSelection, computerPlay());
-        inputDefense = true;
-
-        if (result == 1) playerScore++;
-        else if (result == 2) ties++;
-    }
+function determineWinner(playerScore, ties){
     
     // Figures out the winner.
        if (playerScore  > (rounds - ties) - playerScore){
