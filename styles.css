@@ -19,10 +19,18 @@
     display: flex;
     justify-content: center;
     flex-direction: row;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
 }
 .outcome-text{
     align-self: center;
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 1.2rem;
+
+}
+
+.output{
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 1.2rem;
 }
 
 button{
