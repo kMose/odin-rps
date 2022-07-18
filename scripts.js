@@ -102,6 +102,7 @@ function playRound(userInput, computerInput){
     if (userInput == computerInput){
         gameOutput.innerText = "It's a tie!";
         outcomeText.innerText = "TIE!"
+        determineWinner();
         return 0;
     }
 }
