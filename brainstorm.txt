@@ -1,3 +1,6 @@
+make text size bigger on determineWinner()
+make outcomeText bigger and bolder
+
 
 
 
