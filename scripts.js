@@ -39,7 +39,7 @@ function determineWinner(playerScore, ties){
 function playRound(userInput, computerInput){
 
     if (userInput == "rock"){
-        if (computerInput == "paper"){
+        if (computerInput == "paper"){computerInput
             console.log(`You LOSE! ${computerInput.toUpperCase()} beats ${userInput.toUpperCase()}! `);
             return 0;
         }
@@ -63,7 +63,7 @@ function playRound(userInput, computerInput){
     if (userInput == "scissors"){
         if (computerInput == "rock"){
             console.log(`You LOSE! ${computerInput.toUpperCase()} beats ${userInput.toUpperCase()}! `);
-            return 0;
+            return 0;() => console.log("Testing rock Button")
         }
         if (computerInput == "paper"){
             console.log(`You WIN! ${userInput.toUpperCase()} beats ${computerInput.toUpperCase()}! `);
@@ -77,4 +77,15 @@ function playRound(userInput, computerInput){
     }
 }
 
-playGame();
+let rockButton = document.querySelector(".rock");
+let paperButton = document.querySelector(".paper");
+let scissorsButton = document.querySelector(".scissors");
+let score = 0;
+
+let gameOutput = document.querySelector("#game-output");
+
+
+rockButton.addEventListener("click", () => playRound("rock", computerPlay()));
+paperButton.addEventListener("click", () => playRound("paper", computerPlay()));
+scissorsButton.addEventListener("click", () => playRound("scissors", computerPlay()));
+
