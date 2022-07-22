@@ -19,9 +19,11 @@ function computerPlay(){
     }
 }
 
-function determineWinner(){
+function determineWinner(playerWin){
     scorekeeper.innerText = `Player ${playerScore} | Computer = ${computerScore} `;
     
+    loserMad(playerWin);
+
     // Figures out the winner.
        if (playerScore == 5){
             gameOutput.innerText = "You WIN. YOU BEAT COMPUTER. HOW IS THIS EVEN POSSIBLE?";
@@ -48,14 +50,14 @@ function playRound(userInput, computerInput){
             gameOutput.innerText = `You LOSE! ${computerInput.toUpperCase()} beats ${userInput.toUpperCase()}! `;
             outcomeText.innerText = "YOU LOSE!"
             computerScore++;
-            determineWinner();
+            determineWinner(0);
             return 0;
         }
         if (computerInput == "scissors"){
             gameOutput.innerText = `You WIN! ${userInput.toUpperCase()} beats ${computerInput.toUpperCase()}! `;
             outcomeText.innerText = "YOU WIN!"
             playerScore++;
-            determineWinner();
+            determineWinner(1);
             return 0;
         }
     }
@@ -67,7 +69,7 @@ function playRound(userInput, computerInput){
             gameOutput.innerText = `You LOSE! ${computerInput.toUpperCase()} beats ${userInput.toUpperCase()}! `;
             outcomeText.innerText = "YOU LOSE!"
             computerScore++;
-            determineWinner();
+            determineWinner(0);
             return 0;
         }
         if (computerInput == "rock"){
@@ -75,7 +77,7 @@ function playRound(userInput, computerInput){
             outcomeText.innerText = "YOU WIN!"
             
             playerScore++;
-            determineWinner();
+            determineWinner(1);
             return 0;
         }
     }
@@ -87,14 +89,14 @@ function playRound(userInput, computerInput){
             gameOutput.innerText = `You LOSE! ${computerInput.toUpperCase()} beats ${userInput.toUpperCase()}! `;
             outcomeText.innerText = "YOU LOSE!"
             computerScore++;
-            determineWinner();
+            determineWinner(0);
             return 0;
         }
         if (computerInput == "paper"){
             gameOutput.innerText = `You WIN! ${userInput.toUpperCase()} beats ${computerInput.toUpperCase()}! `;
             outcomeText.innerText = "YOU WIN!"
             playerScore++;
-            determineWinner();
+            determineWinner(1);
             return 0;
         }
     }
@@ -102,20 +104,34 @@ function playRound(userInput, computerInput){
     if (userInput == computerInput){
         gameOutput.innerText = "It's a tie!";
         outcomeText.innerText = "TIE!"
-        determineWinner();
+        determineWinner(2);
         return 0;
     }
 }
 
 function animateHands(){
+    
     computerHand.classList.add("wiggle");
     playerHand.classList.add("wiggle");
 
     setTimeout(()=>{
         computerHand.classList.remove("wiggle");
         playerHand.classList.remove("wiggle");
-    }, 400)
+    }, 400);
 }
+
+function loserMad(playerWin){
+    if (playerWin == 2) return;
+
+    if (playerWin) computerHand.classList.add("shake");
+    else playerHand.classList.add("shake");
+
+    setTimeout(()=>{
+        computerHand.classList.remove("shake");
+        playerHand.classList.remove("shake");
+    }, 1000);
+}
+
 
 
 let computerHand = document.querySelector(".computer-hand")

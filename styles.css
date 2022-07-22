@@ -26,6 +26,12 @@
   animation: wiggle .5s infinite;
 }
 
+.player-hand.shake,
+.computer-hand.shake{
+    display: inline-block;
+    animation: shake .5s infinite;
+}
+
 
 .content{
     display: flex;
